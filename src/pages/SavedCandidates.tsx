@@ -8,6 +8,8 @@ const SavedCandidates = () => {
   const [sortOption, setSortOption] = useState<string>('login');
   // State to hold the filter option for excluding candidates with null fields
   const [filterNotProvided, setFilterNotProvided] = useState<boolean>(false);
+  // State to hold the filter option for excluding candidates with empty locations
+  const [filterEmptyLocation, setFilterEmptyLocation] = useState<boolean>(false);
 
   // Effect to load saved candidates from local storage when the component mounts
   useEffect(() => {
@@ -32,9 +34,14 @@ const SavedCandidates = () => {
     setSortOption(e.target.value);
   };
 
-  // Function to handle filter option change
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Function to handle filter option change for null fields
+  const handleFilterNotProvidedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterNotProvided(e.target.checked);
+  };
+
+  // Function to handle filter option change for empty locations
+  const handleFilterEmptyLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterEmptyLocation(e.target.checked);
   };
 
   // Sort and filter candidates based on selected options
@@ -43,6 +50,13 @@ const SavedCandidates = () => {
       // If filter option is selected, exclude candidates with any null or undefined fields
       if (filterNotProvided) {
         return candidate.name && candidate.location && candidate.email && candidate.company && candidate.bio;
+      }
+      return true;
+    })
+    .filter(candidate => {
+      // If filter option is selected, exclude candidates with empty locations
+      if (filterEmptyLocation) {
+        return candidate.location;
       }
       return true;
     })
@@ -73,9 +87,18 @@ const SavedCandidates = () => {
           <input
             type="checkbox"
             checked={filterNotProvided}
-            onChange={handleFilterChange}
+            onChange={handleFilterNotProvidedChange}
           />
           Exclude Candidates with any Empty optional fields
+        </label>
+        {/* Checkbox to filter out candidates with empty locations */}
+        <label>
+          <input
+            type="checkbox"
+            checked={filterEmptyLocation}
+            onChange={handleFilterEmptyLocationChange}
+          />
+          Exclude Candidates with Empty Locations
         </label>
       </div>
       {sortedAndFilteredCandidates.length > 0 ? (
