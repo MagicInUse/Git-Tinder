@@ -61,11 +61,11 @@ const CandidateSearch = () => {
             {/* Link to the candidate's GitHub profile */}
             <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
           </div>
-          <div>
+          <div className="button-container">
             {/* Button to fetch a new candidate */}
             <button className="button-deny" onClick={fetchCandidate}>-</button>
             {/* Button to save the current candidate */}
-            <button className="button-save" onClick={saveCandidate}>+</button>
+            <button className="button-approve" onClick={saveCandidate}>+</button>
           </div>
         </>
       ) : (

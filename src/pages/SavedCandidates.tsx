@@ -37,7 +37,6 @@ const SavedCandidates = () => {
               <th>Email</th>
               <th>Company</th>
               <th>Bio</th>
-              <th>Profile</th>
               <th>Reject</th>
             </tr>
           </thead>
@@ -47,7 +46,9 @@ const SavedCandidates = () => {
                 <td>
                   <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} width="50" height="50" />
                 </td>
-                <td>{candidate.login}</td>
+                <td>
+                  <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">{candidate.login}</a>
+                </td>
                 {/* Display the optional values if they exist, otherwise display 'Not Provided' */}
                 <td>{candidate.name ? candidate.name : 'Not Provided'}</td>
                 <td>{candidate.location ? candidate.location : 'Not Provided'}</td>
@@ -55,10 +56,7 @@ const SavedCandidates = () => {
                 <td>{candidate.company ? candidate.company : 'Not Provided'}</td>
                 <td>{candidate.bio ? candidate.bio : 'Not Provided'}</td>
                 <td>
-                  <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-                </td>
-                <td>
-                  <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>Delete</button>
+                  <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>Remove</button>
                 </td>
               </tr>
             ))}
