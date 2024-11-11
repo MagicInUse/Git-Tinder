@@ -44,15 +44,4 @@ const searchGithubUser = async (username: string) => {
   }
 };
 
-// utilize the API calls to fetch candidate data and return a Candidate
-const fetchCandidateData = async () => {
-  try {
-    const login = await searchGithub();
-    const userData = await searchGithubUser(login);
-    return userData;
-  } catch (error) {
-    console.error('Error fetching candidate data:', error);
-  }
-};
-
-export { searchGithub, searchGithubUser, fetchCandidateData };
+export { searchGithub, searchGithubUser };

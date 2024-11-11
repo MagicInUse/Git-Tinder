@@ -2,11 +2,11 @@
 
 // Define an interface for the Candidate objects returned by the API
 
-// Originally only utilizing the login property because that's really all we needed -- the username.
-// Then decided to make a new API function ( fetchCandidateData() ) to return all of the candidate data
-// received from the searchGithub function.
-// The more detailed information will come from the searchGithubUser function.
-// Utilizing the two functions, we can fetch the candidate data and return a Candidate object:
+// Originally only utilizing the login property from searchGitHub() because that's really all we needed -- the username.
+// The more detailed information will come from the searchGithubUser() function.
+
+// Utilizing the first of the API functions, we can fetch the random candidate data to provide a username
+// With the username, we then acquire the 2nd API call's response and return a Candidate object:
 
 export interface Candidate {
     login: string;
