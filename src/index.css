@@ -101,6 +101,7 @@ tbody tr:nth-child(odd) {
 }
 
 .nav-item {
+  display: inline-flex;
   padding: 0 0.5rem;
   list-style: none;
 }
