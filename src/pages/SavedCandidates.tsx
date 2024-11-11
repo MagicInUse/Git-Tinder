@@ -131,7 +131,7 @@ const SavedCandidates = () => {
                 <td>{candidate.company ? candidate.company : 'Not Provided'}</td>
                 <td>{candidate.bio ? candidate.bio : 'Not Provided'}</td>
                 <td className="actions">
-                  <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>Remove</button>
+                  <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>-</button>
                 </td>
               </tr>
             ))}
