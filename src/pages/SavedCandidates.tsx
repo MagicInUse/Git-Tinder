@@ -64,7 +64,7 @@ const SavedCandidates = () => {
         <label>
           Sort by:
           <select value={sortOption} onChange={handleSortChange}>
-            <option value="login">Login</option>
+            <option value="login">Username</option>
             <option value="location">Location</option>
           </select>
         </label>
@@ -75,7 +75,7 @@ const SavedCandidates = () => {
             checked={filterNotProvided}
             onChange={handleFilterChange}
           />
-          Exclude Candidates with Null Fields
+          Exclude Candidates with any Empty optional fields
         </label>
       </div>
       {sortedAndFilteredCandidates.length > 0 ? (

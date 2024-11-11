@@ -38,6 +38,10 @@ body {
   min-height: 100vh;
 }
 
+nav {
+  width: 80vw;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -160,4 +164,8 @@ td.actions button {
 .button-approve {
   background-color: #090;
   color: #000;
+}
+
+.controls {
+  padding: 20px;
 }
