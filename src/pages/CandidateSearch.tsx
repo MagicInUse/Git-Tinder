@@ -47,7 +47,7 @@ const CandidateSearch = () => {
             {/* Display the candidate's avatar */}
             <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} />
             {/* Display the candidate's login */}
-            <p>Username: {candidate.login}</p>
+            <p>Username: <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">{candidate.login}</a></p>
             {/* Display the candidate's name */}
             <p>Name: {candidate.name ? candidate.name : 'Not Provided'}</p>
             {/* Display the candidate's location */}
@@ -58,8 +58,6 @@ const CandidateSearch = () => {
             <p>Company: {candidate.company ? candidate.company : 'Not Provided'}</p>
             {/* Display the candidate's bio */}
             <p>Bio: {candidate.bio ? candidate.bio : 'Not Provided'}</p>
-            {/* Link to the candidate's GitHub profile */}
-            <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
           </div>
           <div className="button-container">
             {/* Button to fetch a new candidate */}

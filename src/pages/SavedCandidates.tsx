@@ -43,7 +43,7 @@ const SavedCandidates = () => {
           <tbody>
             {savedCandidates.map((candidate, index) => (
               <tr key={index}>
-                <td>
+                <td className="avatar">
                   <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} width="50" height="50" />
                 </td>
                 <td>
@@ -55,7 +55,7 @@ const SavedCandidates = () => {
                 <td>{candidate.email ? candidate.email : 'Not Provided'}</td>
                 <td>{candidate.company ? candidate.company : 'Not Provided'}</td>
                 <td>{candidate.bio ? candidate.bio : 'Not Provided'}</td>
-                <td>
+                <td className="actions">
                   <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>Remove</button>
                 </td>
               </tr>
