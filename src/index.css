@@ -143,6 +143,7 @@ td.actions button {
 }
 
 .active-candidate {
+  min-width: 50vw;
   background-color: #111;
   border-radius: 10px;
   color: #ddd;
@@ -150,7 +151,15 @@ td.actions button {
   margin: 20px 0;
 }
 
+.active-candidate img {
+  display: block;
+  margin: 0 auto;
+  min-width: 300px;
+  min-height: 300px;
+}
+
 .button-container {
+  min-width: 50vw;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -166,6 +175,6 @@ td.actions button {
   color: #000;
 }
 
-.controls {
+.controls label {
   padding: 20px;
 }
