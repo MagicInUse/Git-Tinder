@@ -159,6 +159,10 @@ td.actions button {
   border-top-right-radius: 40px;
 }
 
+.active-candidate p {
+  padding: 10px 25px;
+}
+
 .button-container {
   display: flex;
   justify-content: space-between;
