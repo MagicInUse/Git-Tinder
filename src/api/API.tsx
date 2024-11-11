@@ -1,3 +1,6 @@
+// I had lots of fun using Insomnia to practice with the GitHub API
+// instead of using the console.log() method
+
 const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
@@ -41,4 +44,15 @@ const searchGithubUser = async (username: string) => {
   }
 };
 
-export { searchGithub, searchGithubUser };
+// utilize the API calls to fetch candidate data and return a Candidate
+const fetchCandidateData = async () => {
+  try {
+    const login = await searchGithub();
+    const userData = await searchGithubUser(login);
+    return userData;
+  } catch (error) {
+    console.error('Error fetching candidate data:', error);
+  }
+};
+
+export { searchGithub, searchGithubUser, fetchCandidateData };
