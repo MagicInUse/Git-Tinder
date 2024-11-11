@@ -162,6 +162,7 @@ td.actions button {
 .button-container {
   display: flex;
   justify-content: space-between;
+  min-width: 200px;
   max-width: 300px;
 }
 
@@ -176,5 +177,5 @@ td.actions button {
 }
 
 .controls label {
-  padding: 20px;
+  padding-bottom: 20px;
 }
