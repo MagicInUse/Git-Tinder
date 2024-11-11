@@ -24,37 +24,51 @@ const SavedCandidates = () => {
   };
 
   return (
-    <div>
+    <>
       <h2>Saved Candidates</h2>
       {savedCandidates.length > 0 ? (
-        // Map through the saved candidates and display their information
-        savedCandidates.map((candidate, index) => (
-          <div key={index}>
-            {/* Display the candidate's avatar */}
-            <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} />
-            {/* Display the candidate's login */}
-            <p>Login: {candidate.login}</p>
-            {/* Display the candidate's name */}
-            <p>Name: {candidate.name}</p>
-            {/* Display the candidate's location */}
-            <p>Location: {candidate.location}</p>
-            {/* Display the candidate's email */}
-            <p>Email: {candidate.email}</p>
-            {/* Display the candidate's company */}
-            <p>Company: {candidate.company}</p>
-            {/* Display the candidate's bio */}
-            <p>Bio: {candidate.bio}</p>
-            {/* Link to the candidate's GitHub profile */}
-            <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-            {/* Button to delete the candidate */}
-            <button onClick={() => deleteCandidate(candidate.login)}>Delete</button>
-          </div>
-        ))
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Bio</th>
+              <th>Profile</th>
+              <th>Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedCandidates.map((candidate, index) => (
+              <tr key={index}>
+                <td>
+                  <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} width="50" height="50" />
+                </td>
+                <td>{candidate.login}</td>
+                {/* Display the optional values if they exist, otherwise display 'Not Provided' */}
+                <td>{candidate.name ? candidate.name : 'Not Provided'}</td>
+                <td>{candidate.location ? candidate.location : 'Not Provided'}</td>
+                <td>{candidate.email ? candidate.email : 'Not Provided'}</td>
+                <td>{candidate.company ? candidate.company : 'Not Provided'}</td>
+                <td>{candidate.bio ? candidate.bio : 'Not Provided'}</td>
+                <td>
+                  <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                </td>
+                <td>
+                  <button className="button-deny" onClick={() => deleteCandidate(candidate.login)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       ) : (
         // Display a message if there are no saved candidates
         <p>No saved candidates</p>
       )}
-    </div>
+    </>
   );
 };
 

@@ -119,3 +119,19 @@ tbody tr:nth-child(odd) {
   width: 80vw;
   table-layout: fixed;
 }
+
+.active-candidate {
+  background-color: #111;
+  border-radius: 10px;
+  color: #ddd;
+}
+
+.button-deny {
+  background-color: #c00;
+  color: #000;
+}
+
+.button-approve {
+  background-color: #090;
+  color: #000;
+}

@@ -40,34 +40,38 @@ const CandidateSearch = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {candidate ? (
-        <div>
-          {/* Display the candidate's avatar */}
-          <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} />
-          {/* Display the candidate's login */}
-          <p>Username: {candidate.login}</p>
-          {/* Display the candidate's name */}
-          <p>Name: {candidate.name}</p>
-          {/* Display the candidate's location */}
-          <p>Location: {candidate.location}</p>
-          {/* Display the candidate's email */}
-          <p>Email: {candidate.email}</p>
-          {/* Display the candidate's company */}
-          <p>Company: {candidate.company}</p>
-          {/* Display the candidate's bio */}
-          <p>Bio: {candidate.bio}</p>
-          {/* Link to the candidate's GitHub profile */}
-          <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-          {/* Button to fetch a new candidate */}
-          <button onClick={fetchCandidate}>-</button>
-          {/* Button to save the current candidate */}
-          <button onClick={saveCandidate}>+</button>
-        </div>
+        <>
+          <div className="active-candidate">
+            {/* Display the candidate's avatar */}
+            <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} />
+            {/* Display the candidate's login */}
+            <p>Username: {candidate.login}</p>
+            {/* Display the candidate's name */}
+            <p>Name: {candidate.name ? candidate.name : 'Not Provided'}</p>
+            {/* Display the candidate's location */}
+            <p>Location: {candidate.location ? candidate.location : 'Not Provided'}</p>
+            {/* Display the candidate's email */}
+            <p>Email: {candidate.email ? candidate.email : 'Not Provided'}</p>
+            {/* Display the candidate's company */}
+            <p>Company: {candidate.company ? candidate.company : 'Not Provided'}</p>
+            {/* Display the candidate's bio */}
+            <p>Bio: {candidate.bio ? candidate.bio : 'Not Provided'}</p>
+            {/* Link to the candidate's GitHub profile */}
+            <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          </div>
+          <div>
+            {/* Button to fetch a new candidate */}
+            <button className="button-deny" onClick={fetchCandidate}>-</button>
+            {/* Button to save the current candidate */}
+            <button className="button-save" onClick={saveCandidate}>+</button>
+          </div>
+        </>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 // I had lots of fun using Insomnia to practice with the GitHub API
-// instead of using the console.log() method
+// instead of using the console.log() method to see the data.
 
 const searchGithub = async () => {
   try {
