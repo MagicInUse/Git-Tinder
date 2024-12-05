@@ -4,12 +4,11 @@
 const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
-    // console.log(import.meta.env);
-    const response = await fetch(
-      `https://api.github.com/users?since=${start}`,
-      {
+    const token = import.meta.env.VITE_GITHUB_TOKEN;
+    console.log('Token:', token); 
+    const response = await fetch(`/api/users?since=${start}`, {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -28,9 +27,11 @@ const searchGithub = async () => {
 
 const searchGithubUser = async (username: string) => {
   try {
-    const response = await fetch(`https://api.github.com/users/${username}`, {
+    const token = import.meta.env.VITE_GITHUB_TOKEN;
+    console.log('Token:', token); 
+    const response = await fetch(`/api/users/${username}`, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const data = await response.json();
@@ -39,7 +40,7 @@ const searchGithubUser = async (username: string) => {
     }
     return data;
   } catch (err) {
-    // console.log('an error occurred', err);
+    console.log('An error occurred', err);
     return {};
   }
 };
