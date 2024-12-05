@@ -13,7 +13,7 @@ const CandidateSearch = () => {
     if (candidates.length > 0) {
       // Get the login of the first candidate
       const login = candidates[0].login;
-      if (login) {
+      if (login !== undefined) {
         // Fetch detailed information about the candidate using the login
         const candidateData = await searchGithubUser(login);
         // Update the state with the fetched candidate data
