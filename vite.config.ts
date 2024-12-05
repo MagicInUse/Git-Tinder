@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.VITE_BASE_URL,
+        target: 'https://api.github.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
