@@ -5,7 +5,6 @@ const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
     const token = import.meta.env.VITE_GITHUB_TOKEN;
-    console.log('Token:', token); 
     const response = await fetch(`https://api.github.com/users?since=${start}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -25,7 +24,6 @@ const searchGithub = async () => {
 const searchGithubUser = async (username: string) => {
   try {
     const token = import.meta.env.VITE_GITHUB_TOKEN;
-    console.log('Token:', token); 
     const response = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
         Authorization: `Bearer ${token}`,
